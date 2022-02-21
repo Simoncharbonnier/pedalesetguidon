@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :bikes do
+    member do
+      resources :rentals, only: :create
+    end
+  end
+  resources :rentals, only: :index
+  namespace :owner do
+    resources :rentals, only: :index do
+      member do
+        patch :accept, :decline
+      end
+    end
+  end
 end
