@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_21_151424) do
+ActiveRecord::Schema.define(version: 2022_02_21_154550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(version: 2022_02_21_151424) do
     t.string "gender"
     t.string "location"
     t.float "size"
-    t.bigint "users_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["users_id"], name: "index_bikes_on_users_id"
+    t.index ["user_id"], name: "index_bikes_on_user_id"
   end
 
   create_table "rentals", force: :cascade do |t|
@@ -33,12 +33,12 @@ ActiveRecord::Schema.define(version: 2022_02_21_151424) do
     t.date "end_at"
     t.float "total_price"
     t.string "status"
-    t.bigint "users_id", null: false
-    t.bigint "bikes_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "bike_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["bikes_id"], name: "index_rentals_on_bikes_id"
-    t.index ["users_id"], name: "index_rentals_on_users_id"
+    t.index ["bike_id"], name: "index_rentals_on_bike_id"
+    t.index ["user_id"], name: "index_rentals_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2022_02_21_151424) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bikes", "users", column: "users_id"
-  add_foreign_key "rentals", "bikes", column: "bikes_id"
-  add_foreign_key "rentals", "users", column: "users_id"
+  add_foreign_key "bikes", "users"
+  add_foreign_key "rentals", "bikes"
+  add_foreign_key "rentals", "users"
 end
