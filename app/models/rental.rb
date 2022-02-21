@@ -1,4 +1,4 @@
 class Rental < ApplicationRecord
-  belongs_to :users
-  belongs_to :bikes
+  belongs_to :user
+  belongs_to :bike
 end
