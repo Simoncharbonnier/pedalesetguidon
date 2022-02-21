@@ -6,11 +6,14 @@ Rails.application.routes.draw do
       resources :rentals, only: :create
     end
   end
+
   resources :rentals, only: :index
+
   namespace :owner do
     resources :rentals, only: :index do
       member do
-        patch :accept, :decline
+        patch :accept
+        patch :decline
       end
     end
   end
