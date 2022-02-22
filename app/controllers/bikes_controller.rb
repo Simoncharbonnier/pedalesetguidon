@@ -10,16 +10,23 @@ class BikesController < ApplicationController
     @rental = Rental.new
   end
 
-  # def new
-  #   @bike = Bike.new
-  # end
+  def new
+    @bike = Bike.new
+  end
 
-  # def create
-  #   @bike = Bike.new(bike_params)
-  #   @bike.save
+  def create
+    @bike = Bike.new(bike_params)
+    @bike.user_id = current_user.id
+    @bike.save
 
-  #   redirect_to bike_path(@bike)
-  # end
+    if @bike.save
+      redirect_to bike_path(@bike)
+    else
+      @bike = Bike.new
+
+      render :new
+    end
+  end
 
   # def edit
   # end
@@ -42,7 +49,7 @@ class BikesController < ApplicationController
     @bike = Bike.find(params[:id])
   end
 
-  # def bike_params
-  #   params.require(:bike).permit(:bike_name, :category, :daily_price, :gender, :location, :size, :user_id)
-  # end
+  def bike_params
+    params.require(:bike).permit(:bike_name, :category, :daily_price, :gender, :location, :size, :photo)
+  end
 end
