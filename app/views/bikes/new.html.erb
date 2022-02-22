@@ -1,1 +1,31 @@
-<h1>Create a bike here</h1>
+<div class="container">
+  <h1>Add a bike to yours</h1>
+  <%= simple_form_for(@bike) do |f| %>
+    <div class="row">
+      <div class="col">
+        <%= f.input :bike_name %>
+      </div>
+      <div class="col">
+        <%= f.input :category, collection: ["VTT", "VTC", "route"] %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <%= f.input :location %>
+      </div>
+      <div class="col">
+        <%= f.input :gender, collection: ["male", "female"] %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <%= f.input :size, collection: ["XS", "S", "M", "L", "XL", "XXL"] %>
+      </div>
+      <div class="col">
+        <%= f.input :daily_price, input_html: { min: 0 } %>
+      </div>
+    </div>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit "Add your bike !", class: "btn btn-primary mt-3" %>
+  <% end %>
+</div>

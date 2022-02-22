@@ -24,7 +24,15 @@
           <p>(options)</p>
           <%= f.input :start_at %>
           <%= f.input :end_at %>
-          <%= f.submit "Book now!", class: "btn btn-primary" %>
+          <% if current_user %>
+            <%= link_to rentals_path do %>
+              <%= f.submit "Book now!", class: "btn btn-primary" %>
+            <% end %>
+          <% else %>
+            <%= link_to new_user_registration_path do %>
+              <%= f.submit "Log in and book now!", class: "btn btn-primary" %>
+            <% end %>
+          <% end %>
         <% end %>
       </div>
     </div>
