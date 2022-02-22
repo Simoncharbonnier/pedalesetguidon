@@ -6,6 +6,7 @@ class BikesController < ApplicationController
   end
 
   def show
+    @rental = Rental.new
   end
 
   # def new
