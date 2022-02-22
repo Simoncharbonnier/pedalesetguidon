@@ -1,20 +1,26 @@
-<h1>Index view</h1>
- <div class="container d-flex">
-   <% @bikes.each do |bike| %>
-    <div class="card mb-3" style="max-width: 620px;">
-      <div class="row no-gutters">
-        <div class="col-md-4">
-        <img src="https://picsum.photos/150?image=641" class="card-img" alt="...">
-      </div>
-       <div class="col-md-8">
-          <div class="card-body">
-           <h5 class="card-title"><%= bike.bike_name %></h5>
-           <p class="card-text"><%= bike.category %></p>
-            <p class="card-text"><small class="text-muted"><%= bike.gender %></small></p>
+
+  <div class="container d-flex ">
+    <div class="flex-grow-1">
+      <% @bikes.each do |bike| %>
+      <div class="card mb-0" style="max-width: 620px;">
+          <div class="row no-gutters">
+          <div class="col-md-4">
+          <img src="https://picsum.photos/150?image=641" class="card-img" alt="...">
+        </div>
+          <div class="col-md-8">
+              <div class="card-body">
+              <h5 class="card-title"><%= bike.bike_name %></h5>
+              <p class="card-text"><%= bike.category %></p>
+                <p class="card-text"><small class="text-muted"><%= bike.gender %></small></p>
+                <div class="d-flex justify-content-between">
+                  <p class="card-text"><strong><%= bike.daily_price %>€</strong></p>
+                  <%= link_to 'Read more', bike_path(bike.id), class: "btn btn-primary btn-sm" %>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     </div>
-  <% end %>
-<img id="map" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoiZHJwdGl0bHUiLCJhIjoiY2t6OGo0NngwMGFsajJ2bzY1NnliNWFnYyJ9.r38_yHKXqQy-4XPNmxorjw'>
-</div>
+   <img id="map" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoiZHJwdGl0bHUiLCJhIjoiY2t6OGo0NngwMGFsajJ2bzY1NnliNWFnYyJ9.r38_yHKXqQy-4XPNmxorjw'>
+  </div>
