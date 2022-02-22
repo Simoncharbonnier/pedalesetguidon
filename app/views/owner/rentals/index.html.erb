@@ -1,0 +1,30 @@
+<h1>Rentals management</h1>
+
+<div class="container">
+  <%= @rentals.each do |rental| %>
+    <%= if (rental.status == "pending" %>
+      <div class="bike-card d-flex">
+        <div class="bike">
+          <div class="bike-informations d-flex justify-content-between">
+            <div class="name-image">
+              <h2 class="name text-center"><%= rental.bike_name %></h2>
+            </div>
+            <div class="informations text-center">
+              <p><%= rental.start_at %>
+              <p><%= rental.end_at %>
+              <p><%= "#{rental.total_price}€" %></p>
+
+            </div>
+          </div>
+          <a class="btn btn-ghost" href="accept_owner_rental">Accept</a>
+          <a class="btn btn-ghost" href="decline_owner_rental">Refuse</a>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
+<!--pour chaque rental if status = pending -->
+<!--alors demander si accept or refuse-->
+<!--si accept rental.status = accepted-->
+<!--sinon rental.status = refused-->

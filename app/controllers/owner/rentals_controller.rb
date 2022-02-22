@@ -3,7 +3,7 @@ class Owner::RentalsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    @rentals = Rental.all
+    @rentals = Rental.where(user_id: current_user)
   end
 
   def accept
