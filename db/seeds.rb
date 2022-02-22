@@ -17,13 +17,13 @@ puts 'Creating users, bikes and rentals [...]'
 # -----------------  PASSWORDS : "secret"  ----------------- #
 
 # 6 users (2 owners and 4 renters)
-john = User.create(first_name: "John", last_name: "Milou", email: "john@milou.fr", password: "secret")
-paul = User.create(first_name: "Paul", last_name: "Haddock", email: "paul@bottle.fr", password: "secret")
-louise = User.create(first_name: "Louise", last_name: "Tournesol", email: "ltournesol@gmail.com", password: "secret")
-louis = User.create(first_name: "Louis", last_name: "Dupond ", email: "ldupont@gmail.com", password: "secret")
+john = User.create(first_name: "John", last_name: "Milou", githname: "valdrn", email: "john@milou.fr", password: "secret")
+paul = User.create(first_name: "Paul", last_name: "Haddock", githname: "criaudh", email: "paul@bottle.fr", password: "secret")
+louise = User.create(first_name: "Louise", last_name: "Tournesol", githname: "drptitlu", email: "ltournesol@gmail.com", password: "secret")
+louis = User.create(first_name: "Louis", last_name: "Dupond ", githname: "simoncharbonnier", email: "ldupont@gmail.com", password: "secret")
 
-patrick = User.create(first_name: "Patrick", last_name: "Antoine ", email: "pantoine@gmail.com", password: "secret")
-catherine = User.create(first_name: "Catherine", last_name: "Prou", email: "cp@gmail.com", password: "secret")
+patrick = User.create(first_name: "Patrick", last_name: "Antoine ", githname: "nfilzi", email: "pantoine@gmail.com", password: "secret")
+catherine = User.create(first_name: "Catherine", last_name: "Prou", githname: "guillaumecabanel", email: "cp@gmail.com", password: "secret")
 puts 'Users seeds done'
 
 # Bikes seed pictures
