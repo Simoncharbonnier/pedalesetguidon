@@ -1,8 +1,8 @@
 class Owner::RentalsController < ApplicationController
-  before_action :set_rental, only: [:accept, :decline]
+  before_action :set_rental, only: %i[accept decline]
 
   def index
-    @rentals = Rental.all
+    @rentals = Rental.where(user_id: current_user)
   end
 
   def accept
