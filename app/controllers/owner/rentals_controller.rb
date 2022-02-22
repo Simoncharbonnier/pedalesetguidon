@@ -9,8 +9,8 @@ class Owner::RentalsController < ApplicationController
     @rental.status = "accepted"
   end
 
-  def decline
-    @rental.status = "declined"
+  def refuse
+    @rental.status = "refused"
   end
 
   private
