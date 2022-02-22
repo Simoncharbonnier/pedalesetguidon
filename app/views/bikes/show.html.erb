@@ -1,5 +1,33 @@
-<h1>Show a bike here</h1>
-<div class="bike">
-  <h2><%= @bike.bike_name %></h2>
-  <p><%= @bike.user %></p>
+<div class="container">
+  <div class="bike-card d-flex">
+    <div class="bike">
+      <div class="bike-informations d-flex justify-content-between">
+        <div class="name-image">
+          <h2 class="name text-center"><%= @bike.bike_name %></h2>
+          <div class="image">
+            <%# <%= cl_image_tag @article.photo.key, height: 200, width: 200, crop: :fill %>
+          </div>
+        </div>
+        <div class="informations text-center">
+          <p><%= @bike.user.last_name + " " + @bike.user.first_name %></p>
+          <p><%= "#{@bike.daily_price}€" %></p>
+          <p><%= @bike.category %></p>
+          <p><%= @bike.size %></p>
+          <p><%= @bike.gender %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="form">
+      <h2>Formulaire</h2>
+      <div class="formulaire">
+        <%= simple_form_for(@rental) do |f| %>
+          <p>(options)</p>
+          <%= f.input :start_at %>
+          <%= f.input :end_at %>
+          <%= f.submit "Book now!", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
