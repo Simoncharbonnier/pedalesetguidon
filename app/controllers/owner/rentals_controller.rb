@@ -1,5 +1,6 @@
 class Owner::RentalsController < ApplicationController
   before_action :set_rental, only: [:accept, :decline]
+  skip_before_action :authenticate_user!, only: [:index]
 
   def index
     @rentals = Rental.all
