@@ -20,14 +20,12 @@
     <div class="form">
       <h2>Formulaire</h2>
       <div class="formulaire">
-        <%= simple_form_for(@rental) do |f| %>
+        <%= simple_form_for([@bike, @rental]) do |f| %>
           <p>(options)</p>
           <%= f.input :start_at %>
           <%= f.input :end_at %>
           <% if current_user %>
-            <%= link_to rentals_path do %>
-              <%= f.submit "Book now!", class: "btn btn-primary" %>
-            <% end %>
+            <%= f.submit "Book now!", class: "btn btn-primary" %>
           <% else %>
             <%= link_to new_user_registration_path do %>
               <%= f.submit "Log in and book now!", class: "btn btn-primary" %>
