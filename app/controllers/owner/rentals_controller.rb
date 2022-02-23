@@ -14,10 +14,14 @@ class Owner::RentalsController < ApplicationController
 
   def accept
     @owner_rental.status = "validated"
+
+    redirect_to owner_rentals_path
   end
 
   def refuse
     @owner_rental.status = "refused"
+
+    redirect_to owner_rentals_path
   end
 
   private
