@@ -14,6 +14,7 @@ class Owner::RentalsController < ApplicationController
 
   def accept
     @owner_rental.status = "validated"
+    
   end
 
   def refuse
