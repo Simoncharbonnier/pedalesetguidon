@@ -8,15 +8,16 @@
         </div>
           <div class="col-md-8">
               <div class="card-body">
-              <h5 class="card-title"><%= bike.bike_name %></h5>
-              <p class="card-text"><%= bike.category %></p>
-                <p class="card-text"><small class="text-muted"><%= bike.gender %></small></p>
+                <h5 class="card-title"><%= bike.bike_name %></h5>
+                <p class="card-text">Category : <%= bike.category %></p>
+                <p class="card-text">Location : <%= bike.location %></p>
+                <p class="card-text">Gender : <%= bike.gender %></p>
                 <div class="d-flex justify-content-between">
-                  <p class="card-text"><strong><%= bike.daily_price %>€</strong></p>
-                  <div>
-                  <%= link_to 'Read more', bike_path(bike.id), class: "btn btn-primary btn-sm" %>
-                  </div>
+                  <p class="card-text"><strong> Daily price : <%= bike.daily_price %>€</strong></p>
+                <div>
+                  <%= link_to 'Read more', bike_path(bike.id), class: "btn btn-success btn-sm" %>
                 </div>
+              </div>
               </div>
             </div>
           </div>
