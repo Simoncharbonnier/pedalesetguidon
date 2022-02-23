@@ -1,0 +1,14 @@
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  .btn{
+    &:hover{
+      background-color: rgb(59, 124, 209);
+      color: white;
+    }
+  }
+}

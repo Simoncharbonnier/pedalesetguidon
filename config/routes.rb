@@ -2,9 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :bikes do
-    member do
-      resources :rentals, only: :create
-    end
+    resources :rentals, only: :create
   end
 
   resources :rentals, only: :index

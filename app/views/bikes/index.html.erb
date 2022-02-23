@@ -4,7 +4,7 @@
       <div class="card mb-0" style="max-width: 620px;">
           <div class="row no-gutters">
           <div class="col-md-4">
-          <%= cl_image_tag bike.photo.key, height: 135, width: 170, class:"card-img p-1 pB-0" %>
+          <%= cl_image_tag bike.photo.key, class:"card-img" %>
         </div>
           <div class="col-md-8">
               <div class="card-body">
@@ -21,5 +21,10 @@
         </div>
       <% end %>
     </div>
-  <img id="map" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoiZHJwdGl0bHUiLCJhIjoiY2t6OGo0NngwMGFsajJ2bzY1NnliNWFnYyJ9.r38_yHKXqQy-4XPNmxorjw'>
+    <div id="map"
+          data-controller="mapbox"
+          data-mapbox-markers-value="<%= @markers.to_json %>"
+          data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+
   </div>

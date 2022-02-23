@@ -4,6 +4,15 @@ class BikesController < ApplicationController
 
   def index
     @bikes = Bike.all
+
+    @markers = @bikes.geocoded.map do |bike|
+      {
+        lat: bike.latitude,
+        lng: bike.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { bike: bike }),
+        image_url: helpers.asset_url("https://e7.pngegg.com/pngimages/463/635/png-clipart-computer-icons-bicycle-bicycle-text-sport.png")
+      }
+    end
   end
 
   def show

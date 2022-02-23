@@ -2,7 +2,7 @@
 @import "home";
 
 #map{
-  height: 140vh;
+  height: 100vh;
   top: 0;
   width: 98vh;
   position: sticky;
@@ -11,5 +11,11 @@
 
 .card-img
 {
-  object-fit: cover;
+  background-size: cover;
+  padding-left: 2px;
+
+}
+
+.btn {
+  margin-bottom: 0px;
 }

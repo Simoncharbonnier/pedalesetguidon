@@ -16,7 +16,7 @@
       <div class="form">
         <h2 class="text-end">Booking details</h2>
         <div class="formulaire">
-          <%= simple_form_for(@rental) do |f| %>
+          <%= simple_form_for([@bike, @rental]) do |f| %>
             <%= f.input :start_at %>
             <%= f.input :end_at %>
             <% if current_user %>
