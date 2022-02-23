@@ -1,12 +1,15 @@
 <div class="container">
-  <h1>En attente</h1>
+  <h1>Pending</h1>
   <div class="container d-flex">
     <% @rentals.each do |rental| %>
       <% if rental.status == "pending" %>
         <div class="card" style="width: 18rem;">
-          <%= cl_image_tag rental.bike.photo.key, height: 150, width: 170, class:"card-img p-1 pB-0" %>
+          <%= cl_image_tag rental.bike.photo.key, class:"card-img " %>
           <div class="card-body">
-            <p class="card-text"><%= rental.end_at %></p>
+            <p class="card-text">Start : <%= rental.start_at %></p>
+            <p class="card-text">End : <%= rental.end_at %></p>
+            <p class="card-text">Location : <%= rental.bike.location %></p>
+            <p class="card-text">Total price : 30€ </p>
           </div>
         </div>
       <% end %>
@@ -15,14 +18,17 @@
   </div>
 <hr>
 <div class="container">
-  <h1>A venir</h1>
+  <h1>Next rentals</h1>
   <div class="container d-flex">
     <% @rentals.each do |rental| %>
       <% if rental.start_at > Date.today && rental.status == "validated" %>
         <div class="card" style="width: 18rem;">
-          <%= cl_image_tag rental.bike.photo.key, height: 150, width: 170, class:"card-img p-1 pB-0" %>
+          <%= cl_image_tag rental.bike.photo.key, class:"card-img" %>
           <div class="card-body">
-            <p class="card-text"><%= rental.end_at %></p>
+            <p class="card-text">Start : <%= rental.start_at %></p>
+            <p class="card-text">End : <%= rental.end_at %></p>
+            <p class="card-text">Location : <%= rental.bike.location %></p>
+            <p class="card-text">Total price : 43€ </p>
           </div>
         </div>
       <% end %>
@@ -31,14 +37,17 @@
 </div>
 <hr>
 <div class="container">
-  <h1>Passées</h1>
+  <h1>Past rentals</h1>
   <div class="container d-flex">
     <% @rentals.each do |rental| %>
       <% if rental.end_at < Date.today && rental.status == "validated" %>
         <div class="card" style="width: 18rem;">
-          <%= cl_image_tag rental.bike.photo.key, height: 150, width: 170, class:"card-img p-1 pB-0" %>
+          <%= cl_image_tag rental.bike.photo.key, class:"card-img" %>
           <div class="card-body">
-            <p class="card-text"><%= rental.end_at %></p>
+            <p class="card-text">Start : <%= rental.start_at %></p>
+            <p class="card-text">End : <%= rental.end_at %></p>
+            <p class="card-text">Location : <%= rental.bike.location %></p>
+            <p class="card-text">Total price : 60€ </p>
           </div>
         </div>
       <% end %>
