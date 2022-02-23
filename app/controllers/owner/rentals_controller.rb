@@ -3,7 +3,13 @@ class Owner::RentalsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    @owner_rentals = Rental.where(user_id: current_user)
+    @bikes = Bike.where(user_id: current_user)
+    @rentals = []
+    @bikes.each do |bike|
+      @rentals << bike.rentals
+    end
+    @owner_rentals = @rentals.select { |rental| rental.first.is_a? Rental }
+    @owner_rentals.map! { |rental| rental.first }
   end
 
   def accept
