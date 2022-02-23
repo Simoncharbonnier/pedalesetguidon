@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :rentals, only: :index do
       member do
         patch :accept
-        patch :decline
+        patch :refuse
       end
     end
   end
