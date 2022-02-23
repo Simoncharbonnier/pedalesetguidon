@@ -1,30 +1,49 @@
+<div class="container">
 <h1>Rentals management</h1>
 
-<div class="container">
-  <%= @rentals.each do |rental| %>
-    <%= if (rental.status == "pending" %>
-      <div class="bike-card d-flex">
-        <div class="bike">
-          <div class="bike-informations d-flex justify-content-between">
-            <div class="name-image">
-              <h2 class="name text-center"><%= rental.bike_name %></h2>
-            </div>
-            <div class="informations text-center">
-              <p><%= rental.start_at %>
-              <p><%= rental.end_at %>
-              <p><%= "#{rental.total_price}€" %></p>
-
-            </div>
+  <h1>En attente</h1>
+  <div class="container d-flex">
+    <% @owner_rentals.each do |owner_rental| %>
+      <% if owner_rental.status == "pending" %>
+        <div class="card" style="width: 18rem;">
+          <%= cl_image_tag owner_rental.bike.photo.key, height: 150, width: 170, class:"card-img p-1 pB-0" %>
+          <div class="card-body">
+            <p class="card-text"><%= owner_rental.end_at %></p>
           </div>
-          <a class="btn btn-ghost" href="accept_owner_rental">Accept</a>
-          <a class="btn btn-ghost" href="decline_owner_rental">Refuse</a>
         </div>
-      </div>
+      <% end %>
     <% end %>
-    </div>
+  </div>
+  </div>
+<hr>
+<div class="container">
+  <h1>A venir</h1>
+  <div class="container d-flex">
+    <% @owner_rentals.each do |owner_rental| %>
+      <% if owner_rental.start_at > Date.today %>
+        <div class="card" style="width: 18rem;">
+          <%= cl_image_tag owner_rental.bike.photo.key, height: 150, width: 170, class:"card-img p-1 pB-0" %>
+          <div class="card-body">
+            <p class="card-text"><%= owner_rental.end_at %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
-<!--pour chaque rental if status = pending -->
-<!--alors demander si accept or refuse-->
-<!--si accept rental.status = accepted-->
-<!--sinon rental.status = refused-->
+<hr>
+<div class="container">
+  <h1>Passées</h1>
+  <div class="container d-flex">
+    <% @owner_rentals.each do |owner_rental| %>
+      <% if rental.end_at < Date.today && owner_rental.status != "pending" %>
+        <div class="card" style="width: 18rem;">
+          <%= cl_image_tag reowner_rentalntal.bike.photo.key, height: 150, width: 170, class:"card-img p-1 pB-0" %>
+          <div class="card-body">
+            <p class="card-text"><%= owner_rental.end_at %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
