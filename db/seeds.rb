@@ -81,6 +81,7 @@ rental3 = Rental.create(user: louise, bike: bike5, status: "pending", start_at: 
 rental4 = Rental.create(user: louis, bike: bike10, status: "validated", start_at: "2021-11-3", end_at: "2021-11-9", total_price: 300 )
 rental5 = Rental.create(user: john, bike: bike8, status: "pending", start_at: "2022-2-3", end_at: "2022-2-5", total_price: 80 )
 rental6 = Rental.create(user: louise, bike: bike9, status: "validated", start_at: "2022-2-18", end_at: "2022-2-22", total_price: 140 )
+rental7 = Rental.create(user: john, bike: bike7, status: "validated", start_at: "2022-4-18", end_at: "2022-4-22", total_price: 140 )
 puts 'Rentals seeds done'
 
 # Confirmation message
