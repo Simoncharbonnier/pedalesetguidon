@@ -9,11 +9,8 @@
           <div class="card-body">
             <p class="card-text"><%= owner_rental.end_at %></p>
           </div>
-          <%= link_to "Accept rental", accept_owner_rental_path(owner_rental), method: "PATCH" %>
-
+          <%= link_to "Accept rental", accept_owner_rental_path(owner_rental), method: "PATCH"%>
         </div>
-
-      <% end %>
     <% end %>
   </div>
   </div>
