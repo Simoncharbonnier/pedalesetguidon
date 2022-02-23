@@ -1,38 +1,35 @@
-<div class="container">
-  <div class="bike-card d-flex">
-    <div class="bike">
-      <div class="bike-informations d-flex justify-content-between">
-        <div class="name-image">
-          <h2 class="name text-center"><%= @bike.bike_name %></h2>
-          <div class="image">
-            <%= cl_image_tag @bike.photo.key, width: 500, height: 350, crop: :fill %>
-          </div>
-        </div>
-        <div class="informations text-center">
-          <p><%= @bike.user.last_name + " " + @bike.user.first_name %></p>
-          <p><%= "#{@bike.daily_price}€" %></p>
-          <p><%= @bike.category %></p>
-          <p><%= @bike.gender %></p>
+<body>
+  <div class="container">
+    <div class="bike-card d-flex justify-content-between">
+      <div class="card-product d-flex justify-content-between">
+        <%= cl_image_tag @bike.photo.key, crop: :fill %>
+        <div class="card-product-infos text-end">
+          <h2><%= @bike.bike_name %></h2>
+          <p>Owner : <%= @bike.user.last_name + " " + @bike.user.first_name %></p>
+                  <p>Daily Price : <%= "#{@bike.daily_price}€" %></p>
+                  <p>Location : <%= "#{@bike.location}" %></p>
+                  <p>Category : <%= @bike.category %></p>
+                  <p>Gender : <%= @bike.gender %></p>
         </div>
       </div>
-    </div>
 
-    <div class="form">
-      <h2>Formulaire</h2>
-      <div class="formulaire">
-        <%= simple_form_for([@bike, @rental]) do |f| %>
-          <p>(options)</p>
-          <%= f.input :start_at %>
-          <%= f.input :end_at %>
-          <% if current_user %>
-            <%= f.submit "Book now!", class: "btn btn-primary" %>
-          <% else %>
-            <%= link_to new_user_registration_path do %>
-              <%= f.submit "Log in and book now!", class: "btn btn-primary" %>
+      <div class="form">
+        <h2 class="text-end">Booking details</h2>
+        <div class="formulaire">
+          <%= simple_form_for([@bike, @rental]) do |f| %>
+            <%= f.input :start_at %>
+            <%= f.input :end_at %>
+            <% if current_user %>
+                <%= f.submit "BOOK YOUR BIKE NOW !", class: "btn btn-primary" %>
+            <% else %>
+              <%= link_to new_user_registration_path do %>
+                <%= f.submit "Log in and book your bike !", class: "btn btn-primary" %>
+              <% end %>
             <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
+    <a href="/bikes" class="btn btn-primary">Back to all bikes !</a>
   </div>
-</div>
+</body>
