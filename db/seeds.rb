@@ -41,34 +41,34 @@ file_bike10 = URI.open("https://res.cloudinary.com/dtrdvotn4/image/upload/v16455
 
 # 10 bikes
 
-bike1 = Bike.create(user: patrick, bike_name: "Btwin Max", category: "VTT", daily_price: "20", gender: "male", location: "Nantes")
+bike1 = Bike.create(user: patrick, bike_name: "Btwin Max", category: "VTT", daily_price: "20", gender: "male", location: " 10 Quai André Morice, Nantes")
 bike1.photo.attach(io: file_bike1, filename: 'BtwinMax.jpg', content_type: 'image/jpg')
 
-bike2 = Bike.create(user: patrick, bike_name: "Btwin Explorer", category: "VTC", daily_price: "15", gender: "male", location: "Bordeaux")
+bike2 = Bike.create(user: patrick, bike_name: "Btwin Explorer", category: "VTC", daily_price: "15", gender: "male", location: "6 Rue François Albert, Nantes")
 bike2.photo.attach(io: file_bike2, filename: 'BtwinExplorer.jpg', content_type: 'image/jpg')
 
-bike3 = Bike.create(user: patrick, bike_name: "Cannondale Speed", category: "Route", daily_price: "30", gender: "male", location: "Saint Herblain")
+bike3 = Bike.create(user: patrick, bike_name: "Cannondale Speed", category: "Route", daily_price: "30", gender: "male", location: "33 Bd Victor Hugo, Nantes")
 bike3.photo.attach(io: file_bike3, filename: 'CannondaleSpeed.jpg', content_type: 'image/jpg')
 
-bike4 = Bike.create(user: patrick, bike_name: "Gitane Explorer", category: "VTC", daily_price: "18", gender: "female", location: "Nantes")
+bike4 = Bike.create(user: patrick, bike_name: "Gitane Explorer", category: "VTC", daily_price: "18", gender: "female", location: "18 Rue Louis Joxe, Nantes")
 bike4.photo.attach(io: file_bike4, filename: 'GitaneExplorer.jpg', content_type: 'image/jpg')
 
-bike5 = Bike.create(user: patrick, bike_name: "Btwin Lady Explorer", category: "VTC", daily_price: "21", gender: "female", location: "Pornichet")
+bike5 = Bike.create(user: patrick, bike_name: "Btwin Lady Explorer", category: "VTC", daily_price: "21", gender: "female", location: "15 Rue la Fayette, Nantes")
 bike5.photo.attach(io: file_bike5, filename: 'BtwinLadyExplorer.jpg', content_type: 'image/jpg')
 
-bike6 = Bike.create(user: catherine, bike_name: "Cannondale Race", category: "Route", daily_price: "32", gender: "male", location: "Paris")
+bike6 = Bike.create(user: catherine, bike_name: "Cannondale Race", category: "Route", daily_price: "32", gender: "male", location: "2 Rue Chauvin, Nantes")
 bike6.photo.attach(io: file_bike6, filename: 'CannondaleRace.jpg', content_type: 'image/jpg')
 
-bike7 = Bike.create(user: catherine, bike_name: "BMC Trek", category: "VTT", daily_price: "45", gender: "male", location: "Rezé")
+bike7 = Bike.create(user: catherine, bike_name: "BMC Trek", category: "VTT", daily_price: "45", gender: "male", location: "12 Rue Georges Clemenceau, Nantes")
 bike7.photo.attach(io: file_bike7, filename: 'BMCTrek.jpg', content_type: 'image/jpg')
 
-bike8 = Bike.create(user: catherine, bike_name: "HaiBike Mud", category: "VTT", daily_price: "40", gender: "male", location: "Nantes")
+bike8 = Bike.create(user: catherine, bike_name: "HaiBike Mud", category: "VTT", daily_price: "40", gender: "male", location: "32 Rue de Lourmel, Nantes")
 bike8.photo.attach(io: file_bike8, filename: 'HaibikeMud.jpg', content_type: 'image/jpg')
 
-bike9 = Bike.create(user: catherine, bike_name: "Cannondale Lady Racer", category: "Route", daily_price: "35", gender: "female", location: "Saint Nazaire")
+bike9 = Bike.create(user: catherine, bike_name: "Cannondale Lady Racer", category: "Route", daily_price: "35", gender: "female", location: "1 Rue de la Brasserie, Nantes")
 bike9.photo.attach(io: file_bike9, filename: 'CannondaleLadyRacer.jpg', content_type: 'image/jpg')
 
-bike10 = Bike.create(user: catherine, bike_name: "Trek UltraMax", category: "VTT", daily_price: "50", gender: "male", location: "Nantes")
+bike10 = Bike.create(user: catherine, bike_name: "Trek UltraMax", category: "VTT", daily_price: "50", gender: "male", location: "17 Bd de Launay, Nantes")
 bike10.photo.attach(io: file_bike10, filename: 'TrekUltraMax.jpg', content_type: 'image/jpg')
 
 puts 'Bikes seeds done'
