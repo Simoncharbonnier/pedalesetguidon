@@ -4,9 +4,8 @@
   <h1>En attente</h1>
   <div class="container d-flex">
     <% @owner_rentals.each do |owner_rental| %>
-      <p><%= owner_rental.end_at %></p>
         <div class="card" style="width: 18rem;">
-          <%= cl_image_tag owner_rental.rental.bike.photo.key, height: 150, width: 170, class:"card-img p-1 pB-0" %>
+          <%= cl_image_tag owner_rental.bike.photo.key, height: 150, width: 170, class:"card-img p-1 pB-0" %>
           <div class="card-body">
             <p class="card-text"><%= owner_rental.end_at %></p>
           </div>
