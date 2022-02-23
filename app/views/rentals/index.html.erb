@@ -4,9 +4,12 @@
     <% @rentals.each do |rental| %>
       <% if rental.status == "pending" %>
         <div class="card" style="width: 18rem;">
-          <%= cl_image_tag rental.bike.photo.key, height: 150, width: 170, class:"card-img p-1 pB-0" %>
+          <%= cl_image_tag rental.bike.photo.key, class:"card-img p-1 pB-0" %>
           <div class="card-body">
-            <p class="card-text"><%= rental.end_at %></p>
+            <p class="card-text">Start : <%= rental.start_at %></p>
+            <p class="card-text">End : <%= rental.end_at %></p>
+            <p class="card-text">Location : <%= rental.bike.location %></p>
+            <p class="card-text">Total price : 30€ </p>
           </div>
         </div>
       <% end %>
@@ -20,9 +23,12 @@
     <% @rentals.each do |rental| %>
       <% if rental.start_at > Date.today %>
         <div class="card" style="width: 18rem;">
-          <%= cl_image_tag rental.bike.photo.key, height: 150, width: 170, class:"card-img p-1 pB-0" %>
+          <%= cl_image_tag rental.bike.photo.key, class:"card-img p-1 pB-0" %>
           <div class="card-body">
-            <p class="card-text"><%= rental.end_at %></p>
+            <p class="card-text">Start : <%= rental.start_at %></p>
+            <p class="card-text">End : <%= rental.end_at %></p>
+            <p class="card-text">Location : <%= rental.bike.location %></p>
+            <p class="card-text">Total price : 43€ </p>
           </div>
         </div>
       <% end %>
@@ -36,9 +42,12 @@
     <% @rentals.each do |rental| %>
       <% if rental.end_at < Date.today && rental.status != "pending" %>
         <div class="card" style="width: 18rem;">
-          <%= cl_image_tag rental.bike.photo.key, height: 150, width: 170, class:"card-img p-1 pB-0" %>
+          <%= cl_image_tag rental.bike.photo.key, class:"card-img p-1 pB-0" %>
           <div class="card-body">
-            <p class="card-text"><%= rental.end_at %></p>
+            <p class="card-text">Start : <%= rental.start_at %></p>
+            <p class="card-text">End : <%= rental.end_at %></p>
+            <p class="card-text">Location : <%= rental.bike.location %></p>
+            <p class="card-text">Total price : 60€ </p>
           </div>
         </div>
       <% end %>

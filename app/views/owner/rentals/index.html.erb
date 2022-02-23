@@ -4,46 +4,14 @@
   <h1>En attente</h1>
   <div class="container d-flex">
     <% @owner_rentals.each do |owner_rental| %>
-      <% if owner_rental.status == "pending" %>
+      <p><%= owner_rental.end_at %></p>
         <div class="card" style="width: 18rem;">
-          <%= cl_image_tag owner_rental.bike.photo.key, height: 150, width: 170, class:"card-img p-1 pB-0" %>
+          <%= cl_image_tag owner_rental.rental.bike.photo.key, height: 150, width: 170, class:"card-img p-1 pB-0" %>
           <div class="card-body">
             <p class="card-text"><%= owner_rental.end_at %></p>
           </div>
         </div>
-      <% end %>
+
     <% end %>
   </div>
   </div>
-<hr>
-<div class="container">
-  <h1>A venir</h1>
-  <div class="container d-flex">
-    <% @owner_rentals.each do |owner_rental| %>
-      <% if owner_rental.start_at > Date.today %>
-        <div class="card" style="width: 18rem;">
-          <%= cl_image_tag owner_rental.bike.photo.key, height: 150, width: 170, class:"card-img p-1 pB-0" %>
-          <div class="card-body">
-            <p class="card-text"><%= owner_rental.end_at %></p>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-</div>
-<hr>
-<div class="container">
-  <h1>Passées</h1>
-  <div class="container d-flex">
-    <% @owner_rentals.each do |owner_rental| %>
-      <% if rental.end_at < Date.today && owner_rental.status != "pending" %>
-        <div class="card" style="width: 18rem;">
-          <%= cl_image_tag reowner_rentalntal.bike.photo.key, height: 150, width: 170, class:"card-img p-1 pB-0" %>
-          <div class="card-body">
-            <p class="card-text"><%= owner_rental.end_at %></p>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-</div>
