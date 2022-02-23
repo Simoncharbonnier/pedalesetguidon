@@ -4,7 +4,7 @@
   <h1>Pending</h1>
   <div class="container d-flex">
     <% @owner_rentals.each do |owner_rental| %>
-      <% if owner_rental.status == "pending" %>
+      <p><%= owner_rental.end_at %></p>
         <div class="card" style="width: 18rem;">
           <%= cl_image_tag owner_rental.bike.photo.key, class:"card-img p-1 pB-0" %>
           <div class="card-body">

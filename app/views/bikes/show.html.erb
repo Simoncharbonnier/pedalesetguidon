@@ -20,16 +20,16 @@
             <%= f.input :start_at %>
             <%= f.input :end_at %>
             <% if current_user %>
-                <%= f.submit "BOOK YOUR BIKE NOW !", class: "btn btn-primary" %>
+                <%= f.submit "BOOK YOUR BIKE NOW !", class: "btn btn-success" %>
             <% else %>
-              <%= link_to new_user_registration_path do %>
-                <%= f.submit "Log in and book your bike !", class: "btn btn-primary" %>
+              <%= link_to new_user_session_path do %>
+                <%= f.submit "Log in and book your bike !", class: "btn btn-success" %>
               <% end %>
             <% end %>
           <% end %>
         </div>
       </div>
     </div>
-    <a href="/bikes" class="btn btn-primary">Back to all bikes !</a>
+    <a href="/bikes" class="btn btn-success">Back to all bikes !</a>
   </div>
 </body>
