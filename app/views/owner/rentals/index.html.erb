@@ -13,7 +13,7 @@
             <p class="card-text">Total price : <%= owner_rental.total_price %>€</p>
           </div class="d-flex">
           <%= link_to "Accept rental", accept_owner_rental_path(owner_rental), method: "PATCH", class: "btn btn-success btn-sm"%>
-          <%= link_to "Reject rental", decline_owner_rental_path(owner_rental), method: "PATCH", class: "btn btn-danger btn-sm"%>
+          <%= link_to "Reject rental", refuse_owner_rental_path(owner_rental), method: "PATCH", class: "btn btn-danger btn-sm"%>
         </div>
     <% end %>
   </div>
