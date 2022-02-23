@@ -13,7 +13,9 @@
                 <p class="card-text"><small class="text-muted"><%= bike.gender %></small></p>
                 <div class="d-flex justify-content-between">
                   <p class="card-text"><strong><%= bike.daily_price %>€</strong></p>
+                  <div>
                   <%= link_to 'Read more', bike_path(bike.id), class: "btn btn-primary btn-sm" %>
+                  </div>
                 </div>
               </div>
             </div>
