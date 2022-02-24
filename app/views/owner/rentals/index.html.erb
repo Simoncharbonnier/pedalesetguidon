@@ -1,38 +1,53 @@
 <div class="container">
-<h1>Rentals management</h1>
+  <h1>Rentals management</h1>
 
   <h1>Pending</h1>
   <div class="container d-flex">
-    <% @owner_rentals.each do |owner_rental| %>
-      <% if owner_rental.status == "pending" %>
-        <div class="card" style="width: 18rem;">
-          <%= cl_image_tag owner_rental.bike.photo.key, class:"card-img" %>
-          <hr>
-          <div class="card-body">
-          <p class="card-text">Status before : <%= owner_rental.status %></p>
-            <p class="card-text">Start : <%= owner_rental.start_at %></p>
-            <p class="card-text">End : <%= owner_rental.end_at %></p>
-            <p class="card-text">Total price : <%= owner_rental.total_price %>€</p>
-          </div class="d-flex">
-          <%= link_to "Accept rental", accept_owner_rental_path(owner_rental), method: "PATCH", class: "btn btn-ghost"%>
-          <%= link_to "Reject rental", refuse_owner_rental_path(owner_rental), method: "PATCH", class: "btn btn-ghost"%>
-        </div>
+      <% @owner_rentals.each do |owner_rental| %>
+        <% if owner_rental.status == "pending" %>
+          <div class="card-rental m-1">
+          <div class= "card-img">
+            <%= cl_image_tag owner_rental.bike.photo.key %>
+           </div>
+           <hr class= "m-0">
+            <div class="card-body">
+            <div class="d-flex">
+             <p class="card-text"> <%= owner_rental.start_at %> - </p>
+             <p class="card-text"> &nbsp<%= owner_rental.end_at %></p>
+           </div>
+             <p class="card-text"><strong>Total <%= owner_rental.total_price %>€</strong></p>
+           </div>
+             <div class= "d-flex justify-content-between p-1">
+              <div>
+                 <%= link_to "Accept rental", accept_owner_rental_path(owner_rental), method: "PATCH", class: "btn btn-success btn-sm"%>
+               </div>
+               <div>
+                 <%= link_to "Reject rental", refuse_owner_rental_path(owner_rental), method: "PATCH", class: "btn btn-danger btn-sm"%>
+               </div>
+              </div>
+         </div>
       <% end %>
     <% end %>
-  </div>
+   </div>
   </div>
 <hr>
 <div class="container">
   <h1>Next </h1>
   <div class="container d-flex">
     <% @owner_rentals.each do |owner_rental| %>
-      <% if rental.status == "validated" && owner_rental.start_at > Date.today %>
-        <div class="card" style="width: 18rem;">
-          <%= cl_image_tag owner_rental.bike.photo.key, class:"card-img" %>
+      <% if owner_rental.start_at > Date.today && owner_rental.status == "validated" %>
+        <div class="card-rental m-1">
+          <div class= "card-img">
+          <%= cl_image_tag owner_rental.bike.photo.key %>
+          </div>
+         <hr class= "m-0">
           <div class="card-body">
-            <p class="card-text">Start : <%= owner_rental.start_at %></p>
-            <p class="card-text">End : <%= owner_rental.end_at %></p>
-            <p class="card-text">Total price : <%= owner_rental.total_price %>€</p>
+            <div class="d-flex">
+            <p class="card-text"> <%= owner_rental.start_at %> - </p>
+            <p class="card-text"> &nbsp<%= owner_rental.end_at %></p>
+          </div>
+            <p class="card-text"><strong>Total <%= owner_rental.total_price %>€</strong></p>
+          </div>
           </div>
         </div>
       <% end %>
@@ -44,13 +59,19 @@
   <h1>Passed</h1>
   <div class="container d-flex">
     <% @owner_rentals.each do |owner_rental| %>
-      <% if rental.status == "validated" && owner_rental.end_at < Date.today %>
-        <div class="card" style="width: 18rem;">
-          <%= cl_image_tag owner_rental.bike.photo.key, class:"card-img p-1 pB-0" %>
+      <% if owner_rental.end_at < Date.today && owner_rental.status == "validated" %>
+        <div class="card-rental m-1">
+        <div class= "card-img">
+          <%= cl_image_tag owner_rental.bike.photo.key %>
+           </div>
+          <hr class= "m-0">
           <div class="card-body">
-            <p class="card-text">Start : <%= owner_rental.start_at %></p>
-            <p class="card-text">End : <%= owner_rental.end_at %></p>
-            <p class="card-text">Total price : <%= owner_rental.total_price %>€</p>
+           <div class="d-flex">
+            <p class="card-text"> <%= owner_rental.start_at %> - </p>
+            <p class="card-text"> &nbsp<%= owner_rental.end_at %></p>
+          </div>
+            <p class="card-text"><strong>Total <%= owner_rental.total_price %>€</strong></p>
+          </div>
           </div>
         </div>
       <% end %>
