@@ -4,6 +4,7 @@
   <h1>Pending</h1>
   <div class="container d-flex">
     <% @owner_rentals.each do |owner_rental| %>
+      <% if owner_rental.status == "pending" %>
         <div class="card" style="width: 18rem;">
           <%= cl_image_tag owner_rental.bike.photo.key, class:"card-img" %>
           <hr>
@@ -15,6 +16,7 @@
           <%= link_to "Accept rental", accept_owner_rental_path(owner_rental), method: "PATCH", class: "btn btn-success btn-sm"%>
           <%= link_to "Reject rental", refuse_owner_rental_path(owner_rental), method: "PATCH", class: "btn btn-danger btn-sm"%>
         </div>
+      <% end %>
     <% end %>
   </div>
   </div>
