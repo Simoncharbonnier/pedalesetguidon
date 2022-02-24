@@ -1,33 +1,31 @@
- <div class="container d-flex ">
-    <div class="flex-grow-1">
-      <% @bikes.each do |bike| %>
+<div class="container d-flex ">
+  <div class="flex-grow-1">
+    <% @bikes.each do |bike| %>
       <div class="card mb-0" style="max-width: 620px;">
-          <div class="row no-gutters">
+        <div class="row no-gutters">
           <div class="col-md-4">
-          <%= cl_image_tag bike.photo.key, class:"card-img" %>
-        </div>
+            <%= cl_image_tag bike.photo.key, class:"card-img" %>
+          </div>
           <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title"><%= bike.bike_name %></h5>
-                <p class="card-text">Category : <%= bike.category %></p>
-                <p class="card-text">Location : <%= bike.location %></p>
-                <p class="card-text">Gender : <%= bike.gender %></p>
-                <div class="d-flex justify-content-between">
-                  <p class="card-text"><strong> Daily price : <%= bike.daily_price %>€</strong></p>
+            <div class="card-body">
+              <h5 class="card-title"><strong><%= bike.bike_name %></strong></h5>
+              <p class="card-text text-muted"><%= "#{bike.category} for #{bike.gender}" %></p>
+              <p class="card-text"><%= bike.location %></p>
+              <div class="d-flex justify-content-between">
+                <h5 class="card-text"><strong><%= bike.daily_price %>€</strong>/day</h5>
                 <div>
                   <%= link_to 'Read more', bike_path(bike.id), class: "btn btn-success btn-sm" %>
                 </div>
               </div>
-              </div>
             </div>
           </div>
         </div>
-      <% end %>
-    </div>
-    <div id="map"
-          data-controller="mapbox"
-          data-mapbox-markers-value="<%= @markers.to_json %>"
-          data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-
+      </div>
+    <% end %>
   </div>
+  <div id="map"
+    data-controller="mapbox"
+    data-mapbox-markers-value="<%= @markers.to_json %>"
+    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
