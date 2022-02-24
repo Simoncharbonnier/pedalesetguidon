@@ -17,7 +17,7 @@ export default class extends Controller {
 
     if (endDate >= startDate) {
       price.value = (days + 1) * daily.innerText
-      totalprice.innerText = price.value + "€"
+      totalprice.innerHTML = `<strong>${price.value} €</strong>`
     } else {
       totalprice.innerText = ""
     }
