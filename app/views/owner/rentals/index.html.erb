@@ -9,12 +9,13 @@
           <%= cl_image_tag owner_rental.bike.photo.key, class:"card-img" %>
           <hr>
           <div class="card-body">
+          <p class="card-text">Status before : <%= owner_rental.status %></p>
             <p class="card-text">Start : <%= owner_rental.start_at %></p>
             <p class="card-text">End : <%= owner_rental.end_at %></p>
             <p class="card-text">Total price : <%= owner_rental.total_price %>€</p>
           </div class="d-flex">
-          <%= link_to "Accept rental", accept_owner_rental_path(owner_rental), method: "PATCH", class: "btn btn-success btn-sm"%>
-          <%= link_to "Reject rental", refuse_owner_rental_path(owner_rental), method: "PATCH", class: "btn btn-danger btn-sm"%>
+          <%= link_to "Accept rental", accept_owner_rental_path(owner_rental), method: "PATCH", class: "btn btn-ghost"%>
+          <%= link_to "Reject rental", refuse_owner_rental_path(owner_rental), method: "PATCH", class: "btn btn-ghost"%>
         </div>
       <% end %>
     <% end %>
