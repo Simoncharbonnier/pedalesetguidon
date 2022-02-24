@@ -21,6 +21,7 @@ class Owner::RentalsController < ApplicationController
   end
 
   def refuse
+    @owner_rental = Rental.find(params[:id])
     @owner_rental.status = "refused"
     @owner_rental.save
 
