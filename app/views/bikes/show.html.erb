@@ -1,7 +1,7 @@
 <body>
   <div class="container">
     <div class="bike-card d-flex justify-content-between">
-      <div class="card-product d-flex justify-content-between">
+      <div class="card-product d-flex justify-content-between mt-5">
         <%= cl_image_tag @bike.photo.key, crop: :fill %>
         <div class="card-product-infos text-end pt-0 pb-0">
           <h2><%= @bike.bike_name %></h2>
@@ -20,14 +20,19 @@
             <%= f.input :start_at, as: :string, required: true, input_html: {class: "datepicker", "data-price-target" => "start" } %>
             <%= f.input :end_at, as: :string, required: true, input_html: {class: "datepicker", "data-price-target" => "end"} %>
             <%= f.input :total_price, required: true, label: false, input_html: {class: "d-none", "data-price-target" => "price"} %>
-            <h3 data-price-target="totalprice"></h3>
-            <% if current_user %>
-                <%= f.submit "BOOK YOUR BIKE NOW !", class: "btn btn-success" %>
-            <% else %>
-              <%= link_to new_user_session_path do %>
-                <%= f.submit "Log in and book your bike !", class: "btn btn-success" %>
+            <div class="d-flex align-items-center">
+              <h4>Total price : &nbsp</h4>
+              <h3 class="text-left" data-price-target="totalprice"></h3>
+            </div>
+            <div class="mt-1">
+              <% if current_user %>
+                  <%= f.submit "BOOK YOUR BIKE NOW !", class: "btn btn-success" %>
+              <% else %>
+                <%= link_to new_user_session_path do %>
+                  <%= f.submit "Log in and book your bike !", class: "btn btn-success" %>
+                <% end %>
               <% end %>
-            <% end %>
+            </div>
           <% end %>
         </div>
       </div>
