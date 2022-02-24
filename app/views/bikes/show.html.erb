@@ -3,13 +3,12 @@
     <div class="bike-card d-flex justify-content-between">
       <div class="card-product d-flex justify-content-between">
         <%= cl_image_tag @bike.photo.key, crop: :fill %>
-        <div class="card-product-infos text-end">
+        <div class="card-product-infos text-end pt-0 pb-0">
           <h2><%= @bike.bike_name %></h2>
-          <p>Owner : <%= @bike.user.last_name + " " + @bike.user.first_name %></p>
-                  <p>Daily Price : <%= "#{@bike.daily_price}€" %></p>
-                  <p>Location : <%= "#{@bike.location}" %></p>
-                  <p>Category : <%= @bike.category %></p>
-                  <p>Gender : <%= @bike.gender %></p>
+          <p class="text-muted mt-0"><i class="fas fa-road"></i> <%= "#{@bike.category} for #{@bike.gender}" %></p>
+          <h2 class=""><strong><%= "#{@bike.daily_price}€" %></strong><small>/day</small></h2>
+          <p><i class="fas fa-map-marker-alt"></i> <%= @bike.location %></p>
+          <p class=""><small>Proposed by <%= @bike.user.last_name + " " + @bike.user.first_name %></small></p>
         </div>
       </div>
 
