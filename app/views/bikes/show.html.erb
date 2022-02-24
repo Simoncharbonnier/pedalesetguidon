@@ -3,32 +3,32 @@
     <div class="bike-card d-flex justify-content-between">
       <div class="card-product d-flex justify-content-between">
         <%= cl_image_tag @bike.photo.key, crop: :fill %>
-        <div class="card-product-infos text-end pt-0 pb-0">
-          <h2><%= @bike.bike_name %></h2>
-          <p class="text-muted mt-0"><i class="fas fa-road"></i> <%= "#{@bike.category} for #{@bike.gender}" %></p>
-          <h3><strong><%= "#{@bike.daily_price}€" %></strong><small>/day</small></h3>
-          <p><i class="fas fa-map-marker-alt"></i> <%= @bike.location %></p>
-          <p class=""><small>Proposed by <%= @bike.user.last_name + " " + @bike.user.first_name %></small></p>
+        <div class="card-product-infos text-end">
+          <h2><strong><%= @bike.bike_name %></strong></h2>
+          <p class="text-muted mb-4"><i class="fas fa-road"></i> <%= "#{@bike.category} - #{@bike.gender.capitalize}" %></p>
+          <h3 class="mb-4"><strong><%= "#{@bike.daily_price}€" %></strong><small> / day</small></h3>
+          <p class="text-muted"><i class="fas fa-map-marker-alt"></i> <%= @bike.location %></p>
+          <p class="text-muted mt-4"><small>Proposed by <%= @bike.user.last_name + " " + @bike.user.first_name %></small></p>
         </div>
       </div>
 
       <div class="form">
-        <h2 class="text-end">Booking details</h2>
+        <h3 class="text-end"><strong>Booking details</strong></h3>
         <div class="formulaire">
           <%= simple_form_for([@bike, @rental]) do |f| %>
             <%= f.input :start_at, as: :string, required: true, input_html: {class: "datepicker", id: "start"} %>
             <%= f.input :end_at, as: :string, required: true, input_html: {class: "datepicker", id: "end"} %>
             <% if current_user %>
-                <%= f.submit "BOOK YOUR BIKE NOW !", class: "btn btn-success" %>
+                <%= f.submit "BOOK NOW !", class: "btn btn-success" %>
             <% else %>
               <%= link_to new_user_session_path do %>
-                <%= f.submit "Log in and book your bike !", class: "btn btn-success" %>
+                <%= f.submit "Log in and book now !", class: "btn btn-success" %>
               <% end %>
             <% end %>
           <% end %>
         </div>
       </div>
     </div>
-    <a href="/bikes" class="btn btn-success">Back to all bikes !</a>
+    <a href="/bikes" class="btn btn-success px-5">Back to all bikes</a>
   </div>
 </body>

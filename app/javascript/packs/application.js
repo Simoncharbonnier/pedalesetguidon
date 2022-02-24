@@ -9,7 +9,10 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import { initFlatpickr } from "../plugins/flatpickr";
 
-initFlatpickr();
+document.addEventListener('turbolinks:load', function(){
+  initFlatpickr();
+});
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()

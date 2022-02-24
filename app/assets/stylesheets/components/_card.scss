@@ -9,9 +9,10 @@ body {
   }
 
   .form {
-    h2 {
+    h3 {
       margin-top:16px;
       margin-bottom: 8px;
+      font-size: 20px;
     }
     .btn {
       margin-top: 16px;
@@ -29,6 +30,7 @@ body {
   align-items: center;
   width: 50%;
   margin-top: 16px;
+  border-radius: 10px;
 }
 
 .card-product img {
@@ -40,9 +42,14 @@ body {
 }
 
 .card-product h2 {
-  font-size: 30px;
-  font-weight: bold;
+  font-size: 20px;
+  color: #A3A3A3;
   margin: 0;
+}
+
+.card-product h3 {
+  font-size: 25px;
+  margin-top: 10px;
 }
 
 .card-product p {
@@ -54,4 +61,9 @@ body {
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+.btn:hover {
+  color:white !important;
+  opacity: 0.8 !important;
 }
