@@ -26,7 +26,7 @@
             </div>
             <div class="mt-1">
               <% if current_user %>
-                  <%= f.submit "BOOK YOUR BIKE NOW !", class: "btn btn-success" %>
+                <%= f.submit "BOOK YOUR BIKE NOW !", class: "btn btn-success" %>
               <% else %>
                 <%= link_to new_user_session_path do %>
                   <%= f.submit "Log in and book your bike !", class: "btn btn-success" %>

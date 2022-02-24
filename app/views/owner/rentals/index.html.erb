@@ -1,67 +1,61 @@
 <div class="container">
-
   <h3 class="title py-3">Waiting for validation</h3>
   <div class="d-flex">
-      <% @owner_rentals.each do |owner_rental| %>
-        <% if owner_rental.status == "pending" %>
-          <div class="card-rental">
-            <div class= "card-img">
-              <%= cl_image_tag owner_rental.bike.photo.key %>
-            </div>
-
-            <div class="card-body">
-              <h4 class="bike-title "> <%= owner_rental.bike.bike_name %> </h4>
-              <p class=" text-muted"> <%= owner_rental.start_at %> - <%= owner_rental.end_at %> </p>
-              <p><strong><i class="fas fa-euro-sign"></i> <%= owner_rental.total_price %></strong></p>
-            </div>
-            <div class= "d-flex justify-content-between px-3 pb-3">
-              <div class="accept">
-                <%= link_to "ACCEPT", accept_owner_rental_path(owner_rental), method: "PATCH", class: "btn btn-success  px-4"%>
-              </div>
-              <div class="refuse">
-                <%= link_to " REFUSE", refuse_owner_rental_path(owner_rental), method: "PATCH", class: "btn btn-danger px-4"%>
-              </div>
-            </div>
-          </div>
-      <% end %>
-    <% end %>
-  </div>
-
-  <h3 class="title py-3">Next rentals</h3>
-  <div class="d-flex">
-
     <% @owner_rentals.each do |owner_rental| %>
-      <% if owner_rental.start_at > Date.today && owner_rental.status == "validated" %>
+      <% if owner_rental.status == "pending" %>
         <div class="card-rental">
           <div class= "card-img">
-           <%= cl_image_tag owner_rental.bike.photo.key %>
+            <%= cl_image_tag owner_rental.bike.photo.key %>
           </div>
-            <div class="card-body">
-              <h4 class="bike-title "> <%= owner_rental.bike.bike_name %> </h4>
-              <p class=" text-muted"> <%= owner_rental.start_at %> - <%= owner_rental.end_at %> </p>
-              <p><strong><i class="fas fa-euro-sign"></i> <%= owner_rental.total_price %></strong></p>
+          <div class="card-body">
+            <h4 class="bike-title "> <%= owner_rental.bike.bike_name %> </h4>
+            <p class=" text-muted"> <%= owner_rental.start_at %> - <%= owner_rental.end_at %> </p>
+            <p><strong><i class="fas fa-euro-sign"></i> <%= owner_rental.total_price %></strong></p>
+          </div>
+          <div class= "d-flex justify-content-between px-3 pb-3">
+            <div class="accept">
+              <%= link_to "ACCEPT", accept_owner_rental_path(owner_rental), method: "PATCH", class: "btn btn-success  px-4"%>
             </div>
+            <div class="refuse">
+              <%= link_to " REFUSE", refuse_owner_rental_path(owner_rental), method: "PATCH", class: "btn btn-danger px-4"%>
+            </div>
+          </div>
         </div>
       <% end %>
     <% end %>
   </div>
-
+  <h3 class="title py-3">Next rentals</h3>
+  <div class="d-flex">
+    <% @owner_rentals.each do |owner_rental| %>
+      <% if owner_rental.start_at > Date.today && owner_rental.status == "validated" %>
+        <div class="card-rental">
+          <div class= "card-img">
+            <%= cl_image_tag owner_rental.bike.photo.key %>
+          </div>
+          <div class="card-body">
+            <h4 class="bike-title "> <%= owner_rental.bike.bike_name %> </h4>
+            <p class=" text-muted"> <%= owner_rental.start_at %> - <%= owner_rental.end_at %> </p>
+            <p><strong><i class="fas fa-euro-sign"></i> <%= owner_rental.total_price %></strong></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
   <h3 class="title py-3">Passed rentals</h3>
   <div class="d-flex">
     <% @owner_rentals.each do |owner_rental| %>
       <% if owner_rental.end_at < Date.today && owner_rental.status == "validated" %>
         <div class="card-rental">
           <div class= "card-img">
-             <%= cl_image_tag owner_rental.bike.photo.key %>
+            <%= cl_image_tag owner_rental.bike.photo.key %>
           </div>
           <div class="card-body">
-              <h4 class="bike-title "> <%= owner_rental.bike.bike_name %> </h4>
-              <p class=" text-muted"> <%= owner_rental.start_at %> - <%= owner_rental.end_at %> </p>
-              <p><strong><i class="fas fa-euro-sign"></i> <%= owner_rental.total_price %></strong></p>
+            <h4 class="bike-title "> <%= owner_rental.bike.bike_name %> </h4>
+            <p class=" text-muted"> <%= owner_rental.start_at %> - <%= owner_rental.end_at %> </p>
+            <p><strong><i class="fas fa-euro-sign"></i> <%= owner_rental.total_price %></strong></p>
           </div>
         </div>
       <% end %>
     <% end %>
   </div>
-
 </div>
