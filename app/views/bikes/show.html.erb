@@ -8,16 +8,19 @@
           <p class="text-muted mt-0"><i class="fas fa-road"></i> <%= "#{@bike.category} for #{@bike.gender}" %></p>
           <h3><strong><%= "#{@bike.daily_price}€" %></strong><small>/day</small></h3>
           <p><i class="fas fa-map-marker-alt"></i> <%= @bike.location %></p>
-          <p class=""><small>Proposed by <%= @bike.user.last_name + " " + @bike.user.first_name %></small></p>
+          <p><small>Proposed by <%= @bike.user.last_name + " " + @bike.user.first_name %></small></p>
         </div>
       </div>
 
       <div class="form">
         <h2 class="text-end">Booking details</h2>
-        <div class="formulaire">
+        <div class="formulaire" data-controller="price" data-action="input->price#price">
           <%= simple_form_for([@bike, @rental]) do |f| %>
-            <%= f.input :start_at, as: :string, required: true, input_html: {class: "datepicker", id: "start"} %>
-            <%= f.input :end_at, as: :string, required: true, input_html: {class: "datepicker", id: "end"} %>
+            <p class="d-none" data-price-target="daily"><%= "#{@bike.daily_price}" %></p>
+            <%= f.input :start_at, as: :string, required: true, input_html: {class: "datepicker", "data-price-target" => "start" } %>
+            <%= f.input :end_at, as: :string, required: true, input_html: {class: "datepicker", "data-price-target" => "end"} %>
+            <%= f.input :total_price, required: true, label: false, input_html: {class: "d-none", "data-price-target" => "price"} %>
+            <h3 data-price-target="totalprice"></h3>
             <% if current_user %>
                 <%= f.submit "BOOK YOUR BIKE NOW !", class: "btn btn-success" %>
             <% else %>
