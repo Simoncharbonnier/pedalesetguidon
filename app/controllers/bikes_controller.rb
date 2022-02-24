@@ -29,7 +29,7 @@ class BikesController < ApplicationController
     @bike.save
 
     if @bike.save
-      redirect_to bike_path(@bike)
+      redirect_to owner_rentals_path(@bike)
     else
       @bike = Bike.new
 
