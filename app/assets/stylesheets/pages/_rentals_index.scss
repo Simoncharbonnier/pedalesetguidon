@@ -1,5 +1,10 @@
 
-
+.container {
+  background-color: #EEEEEE;
+  margin-top: 10px;
+  border-radius: 10px;
+  padding-bottom: 10px;
+}
 .parent fa-map-marker-alt{
   color:#7DC2A5;
 }
@@ -20,6 +25,7 @@
 /* Add some padding inside the card container */
 .container {
   padding: 2px 16px;
+
 }
 .card-text-left {
   text-align: left;
