@@ -6,10 +6,10 @@
         <div class="card" style="width: 18rem;">
           <div style="background-size: cover; background-position: center; height: 200px; background-image: url('<%= cl_image_path rental.bike.photo.key%>');"></div>
           <div class="card-body">
-            <p class="card-text">Start : <%= rental.start_at %></p>
-            <p class="card-text">End : <%= rental.end_at %></p>
-            <p class="card-text">Location : <%= rental.bike.location %></p>
-            <p class="card-text">Total price : 30€ </p>
+            <p class="card-text"><%= rental.start_at %><strong> -> </strong> <%= rental.end_at %></p>
+
+            <p class="card-text"><i class="fas fa-map-marker-alt"></i>  <%= rental.bike.location %></p>
+            <p class="card-text"><i class="fa-solid fa-euro-sign"></i>  30€</p>
           </div>
         </div>
       <% end %>
