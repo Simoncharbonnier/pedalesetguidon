@@ -16,8 +16,8 @@
         <h2 class="text-end">Booking details</h2>
         <div class="formulaire">
           <%= simple_form_for([@bike, @rental]) do |f| %>
-            <%= f.input :start_at %>
-            <%= f.input :end_at %>
+            <%= f.input :start_at, as: :string, required: true, input_html: {class: "datepicker"} %>
+            <%= f.input :end_at, as: :string, required: true, input_html: {class: "datepicker"} %>
             <% if current_user %>
                 <%= f.submit "BOOK YOUR BIKE NOW !", class: "btn btn-success" %>
             <% else %>

@@ -25,7 +25,7 @@
   <h1>Next </h1>
   <div class="container d-flex">
     <% @owner_rentals.each do |owner_rental| %>
-      <% if owner_rental.start_at > Date.today && owner_rental.status == "validated" %>
+      <% if rental.status == "validated" && owner_rental.start_at > Date.today %>
         <div class="card" style="width: 18rem;">
           <%= cl_image_tag owner_rental.bike.photo.key, class:"card-img" %>
           <div class="card-body">
@@ -43,7 +43,7 @@
   <h1>Passed</h1>
   <div class="container d-flex">
     <% @owner_rentals.each do |owner_rental| %>
-      <% if owner_rental.end_at < Date.today && owner_rental.status == "validated" %>
+      <% if rental.status == "validated" && owner_rental.end_at < Date.today %>
         <div class="card" style="width: 18rem;">
           <%= cl_image_tag owner_rental.bike.photo.key, class:"card-img p-1 pB-0" %>
           <div class="card-body">
