@@ -28,7 +28,6 @@ puts 'Users seeds done'
 
 # Bikes seed pictures
 
-file_bike1 = URI.open("https://res.cloudinary.com/dtrdvotn4/image/upload/v1645527143/bike1_byfyxx.jpg")
 file_bike2 = URI.open("https://res.cloudinary.com/dtrdvotn4/image/upload/v1645527143/bike2_raefoq.jpg")
 file_bike3 = URI.open("https://res.cloudinary.com/dtrdvotn4/image/upload/v1645527143/bike3_qhfyr3.jpg")
 file_bike4 = URI.open("https://res.cloudinary.com/dtrdvotn4/image/upload/v1645527143/bike4_ldaw6a.jpg")
@@ -40,9 +39,6 @@ file_bike9 = URI.open("https://res.cloudinary.com/dtrdvotn4/image/upload/v164552
 file_bike10 = URI.open("https://res.cloudinary.com/dtrdvotn4/image/upload/v1645527142/bike10_tgimva.jpg")
 
 # 10 bikes
-
-bike1 = Bike.create(user: patrick, bike_name: "Btwin Max", category: "VTT", daily_price: "20", gender: "male", location: " 10 Quai André Morice, Nantes")
-bike1.photo.attach(io: file_bike1, filename: 'BtwinMax.jpg', content_type: 'image/jpg')
 
 bike2 = Bike.create(user: patrick, bike_name: "Btwin Explorer", category: "VTC", daily_price: "15", gender: "male", location: "6 Rue François Albert, Nantes")
 bike2.photo.attach(io: file_bike2, filename: 'BtwinExplorer.jpg', content_type: 'image/jpg')

@@ -21,7 +21,7 @@
   <h1>Next rentals</h1>
   <div class="container d-flex">
     <% @rentals.each do |rental| %>
-      <% if rental.start_at > Date.today && rental.status == "validated" %>
+      <% if rental.status == "validated" && rental.start_at > Date.today %>
         <div class="card" style="width: 18rem;">
             <div style="background-size: cover; background-position: center; height: 200px; background-image: url('<%= cl_image_path rental.bike.photo.key%>');"></div>
           <div class="card-body">
@@ -40,7 +40,7 @@
   <h1>Past rentals</h1>
   <div class="container d-flex">
     <% @rentals.each do |rental| %>
-      <% if rental.end_at < Date.today && rental.status == "validated" %>
+      <% if rental.status == "validated" && rental.end_at < Date.today %>
         <div class="card" style="width: 18rem;">
             <div style="background-size: cover; background-position: center; height: 200px; background-image: url('<%= cl_image_path rental.bike.photo.key%>');"></div>
           <div class="card-body">

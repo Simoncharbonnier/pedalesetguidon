@@ -35,12 +35,18 @@
   <h1>Next </h1>
   <div class="container d-flex">
     <% @owner_rentals.each do |owner_rental| %>
+<<<<<<< HEAD
       <% if owner_rental.start_at > Date.today && owner_rental.status == "validated" %>
         <div class="card-rental m-1">
           <div class= "card-img">
           <%= cl_image_tag owner_rental.bike.photo.key %>
           </div>
          <hr class= "m-0">
+=======
+      <% if rental.status == "validated" && owner_rental.start_at > Date.today %>
+        <div class="card" style="width: 18rem;">
+          <%= cl_image_tag owner_rental.bike.photo.key, class:"card-img" %>
+>>>>>>> c76d7f68fd371d8149f65b01efa6660f18e8969b
           <div class="card-body">
             <div class="d-flex">
             <p class="card-text"> <%= owner_rental.start_at %> - </p>
@@ -59,12 +65,18 @@
   <h1>Passed</h1>
   <div class="container d-flex">
     <% @owner_rentals.each do |owner_rental| %>
+<<<<<<< HEAD
       <% if owner_rental.end_at < Date.today && owner_rental.status == "validated" %>
         <div class="card-rental m-1">
         <div class= "card-img">
           <%= cl_image_tag owner_rental.bike.photo.key %>
            </div>
           <hr class= "m-0">
+=======
+      <% if rental.status == "validated" && owner_rental.end_at < Date.today %>
+        <div class="card" style="width: 18rem;">
+          <%= cl_image_tag owner_rental.bike.photo.key, class:"card-img p-1 pB-0" %>
+>>>>>>> c76d7f68fd371d8149f65b01efa6660f18e8969b
           <div class="card-body">
            <div class="d-flex">
             <p class="card-text"> <%= owner_rental.start_at %> - </p>
