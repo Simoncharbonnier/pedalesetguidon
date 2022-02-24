@@ -8,6 +8,7 @@
             <div class= "card-img">
               <%= cl_image_tag owner_rental.bike.photo.key %>
             </div>
+
             <div class="card-body">
               <h4 class="bike-title "> <%= owner_rental.bike.bike_name %> </h4>
               <p class=" text-muted"> <%= owner_rental.start_at %> - <%= owner_rental.end_at %> </p>
@@ -28,6 +29,7 @@
 
   <h3 class="title py-3">Next rentals</h3>
   <div class="d-flex">
+
     <% @owner_rentals.each do |owner_rental| %>
       <% if owner_rental.start_at > Date.today && owner_rental.status == "validated" %>
         <div class="card-rental">
