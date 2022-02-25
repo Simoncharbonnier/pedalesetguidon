@@ -6,22 +6,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<<<<<<< HEAD
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload', defer: true %>
-
-=======
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
->>>>>>> b07562d19a9a965e4a2b7f3624d4e973efde8ff8
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
   <body style="background-color: #EEEEEE;">
     <%= render 'shared/navbar' %>
-    <div ><%= yield %></div>
+    <div><%= yield %></div>
     <%= render 'shared/footer' %>
   </body>
 </html>

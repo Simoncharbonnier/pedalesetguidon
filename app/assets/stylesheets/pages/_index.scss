@@ -29,7 +29,8 @@
 }
 
 .card {
-  height: 150px;
+  height: auto;
+  width: 450px;
   border-radius: 10px;
   margin-bottom: 10px;
   text-align: left;
@@ -37,4 +38,9 @@
 
 .bike-title {
   color: #A3A3A3;
+}
+
+
+.body-footer {
+  min-height: 100vh !important;
 }

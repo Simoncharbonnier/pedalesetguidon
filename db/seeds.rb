@@ -17,12 +17,12 @@ puts 'Creating users, bikes and rentals [...]'
 # -----------------  PASSWORDS : "secret"  ----------------- #
 
 # 6 users (2 owners and 4 renters)
-john = User.create(first_name: "John", last_name: "Milou", githname: "valdrn", email: "john@milou.fr", password: "secret")
-paul = User.create(first_name: "Paul", last_name: "Haddock", githname: "criaudh", email: "paul@bottle.fr", password: "secret")
+john = User.create(first_name: "John", last_name: "Milou", githname: "nfilzi", email: "john@milou.fr", password: "secret")
+paul = User.create(first_name: "Paul", last_name: "Haddock", githname: "valdrn", email: "paul@bottle.fr", password: "secret")
 louise = User.create(first_name: "Louise", last_name: "Tournesol", githname: "drptitlu", email: "ltournesol@gmail.com", password: "secret")
 louis = User.create(first_name: "Louis", last_name: "Dupond ", githname: "simoncharbonnier", email: "ldupont@gmail.com", password: "secret")
 
-patrick = User.create(first_name: "Patrick", last_name: "Antoine ", githname: "nfilzi", email: "pantoine@gmail.com", password: "secret")
+patrick = User.create(first_name: "Patrick", last_name: "Antoine ", githname: "criaudh", email: "pantoine@gmail.com", password: "secret")
 catherine = User.create(first_name: "Catherine", last_name: "Prou", githname: "guillaumecabanel", email: "cp@gmail.com", password: "secret")
 puts 'Users seeds done'
 
@@ -46,7 +46,7 @@ bike2.photo.attach(io: file_bike2, filename: 'BtwinExplorer.jpg', content_type: 
 bike3 = Bike.create(user: patrick, bike_name: "Cannondale Speed", category: "Route", daily_price: "30", gender: "male", location: "33 Bd Victor Hugo, Nantes")
 bike3.photo.attach(io: file_bike3, filename: 'CannondaleSpeed.jpg', content_type: 'image/jpg')
 
-bike4 = Bike.create(user: patrick, bike_name: "Gitane Explorer", category: "VTC", daily_price: "18", gender: "female", location: "18 Rue Louis Joxe, Nantes")
+bike4 = Bike.create(user: patrick, bike_name: "Gitane Explorer", category: "VTC", daily_price: "18", gender: "male", location: "8 Passage de la Poule Noire, Nantes")
 bike4.photo.attach(io: file_bike4, filename: 'GitaneExplorer.jpg', content_type: 'image/jpg')
 
 bike5 = Bike.create(user: patrick, bike_name: "Btwin Lady Explorer", category: "VTC", daily_price: "21", gender: "female", location: "15 Rue la Fayette, Nantes")
@@ -70,14 +70,12 @@ bike10.photo.attach(io: file_bike10, filename: 'TrekUltraMax.jpg', content_type:
 puts 'Bikes seeds done'
 
 # 6 Rentals
-
-rental1 = Rental.create(user: john, bike: bike2, status: "pending", start_at: "2022-03-03", end_at: "2022-03-05", total_price: 30 )
-rental2 = Rental.create(user: paul, bike: bike3, status: "validated", start_at: "2021-1-3", end_at: "2021-1-5", total_price: 64 )
-rental3 = Rental.create(user: louise, bike: bike4, status: "validated", start_at: "2021-12-3", end_at: "2021-12-5", total_price: 36 )
-rental4 = Rental.create(user: louis, bike: bike10, status: "validated", start_at: "2021-11-3", end_at: "2021-11-9", total_price: 300 )
-rental5 = Rental.create(user: john, bike: bike3, status: "pending", start_at: "2022-02-03", end_at: "2022-02-05", total_price: 80 )
-rental6 = Rental.create(user: louise, bike: bike9, status: "validated", start_at: "2022-2-18", end_at: "2022-2-22", total_price: 140 )
-rental7 = Rental.create(user: john, bike: bike2, status: "validated", start_at: "2022-4-18", end_at: "2022-4-22", total_price: 140 )
+rental4 = Rental.create(user: paul, bike: bike7, status: "validated", start_at: "2022-4-3", end_at: "2022-4-5", total_price: bike7.daily_price * 3 )
+rental1 = Rental.create(user: paul, bike: bike9, status: "validated", start_at: "2020-1-3", end_at: "2020-1-5", total_price: bike9.daily_price * 3 )
+rental2 = Rental.create(user: paul, bike: bike5, status: "validated", start_at: "2021-1-3", end_at: "2021-1-5", total_price: bike5.daily_price * 3 )
+rental3 = Rental.create(user: louise, bike: bike4, status: "validated", start_at: "2021-12-3", end_at: "2021-12-5", total_price: bike4.daily_price * 3 )
+rental5 = Rental.create(user: john, bike: bike3, status: "validated", start_at: "2021-02-03", end_at: "2021-02-05", total_price: bike3.daily_price * 3 )
+rental7 = Rental.create(user: john, bike: bike2, status: "validated", start_at: "2022-4-18", end_at: "2022-4-22", total_price: bike2.daily_price * 5 )
 puts 'Rentals seeds done'
 
 # Confirmation message
