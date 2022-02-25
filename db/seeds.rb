@@ -71,11 +71,11 @@ puts 'Bikes seeds done'
 
 # 6 Rentals
 
-rental1 = Rental.create(user: john, bike: bike2, status: "pending", start_at: "2022-3-3", end_at: "2022-3-5", total_price: 30 )
+rental1 = Rental.create(user: john, bike: bike2, status: "pending", start_at: "2022-03-03", end_at: "2022-03-05", total_price: 30 )
 rental2 = Rental.create(user: paul, bike: bike3, status: "validated", start_at: "2021-1-3", end_at: "2021-1-5", total_price: 64 )
 rental3 = Rental.create(user: louise, bike: bike4, status: "validated", start_at: "2021-12-3", end_at: "2021-12-5", total_price: 36 )
 rental4 = Rental.create(user: louis, bike: bike10, status: "validated", start_at: "2021-11-3", end_at: "2021-11-9", total_price: 300 )
-rental5 = Rental.create(user: john, bike: bike3, status: "pending", start_at: "2022-2-3", end_at: "2022-2-5", total_price: 80 )
+rental5 = Rental.create(user: john, bike: bike3, status: "pending", start_at: "2022-02-03", end_at: "2022-02-05", total_price: 80 )
 rental6 = Rental.create(user: louise, bike: bike9, status: "validated", start_at: "2022-2-18", end_at: "2022-2-22", total_price: 140 )
 rental7 = Rental.create(user: john, bike: bike2, status: "validated", start_at: "2022-4-18", end_at: "2022-4-22", total_price: 140 )
 puts 'Rentals seeds done'
