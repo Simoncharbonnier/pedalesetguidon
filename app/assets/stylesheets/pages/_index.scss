@@ -2,10 +2,11 @@
 @import "home";
 @import "owner_index";
 @import "rentals_index";
+@import "bikes_show";
 
 
 #map{
-  height: 100vh;
+  height: 96vh;
   top: 0;
   width: 80vw;
   position: sticky;
