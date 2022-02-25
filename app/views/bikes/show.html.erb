@@ -17,8 +17,8 @@
         <div class="formulaire" data-controller="price" data-action="input->price#price">
           <%= simple_form_for([@bike, @rental]) do |f| %>
             <p class="d-none" data-price-target="daily"><%= "#{@bike.daily_price}" %></p>
-            <%= f.input :start_at, as: :string, required: true, input_html: {class: "datepicker", "data-price-target" => "start" } %>
-            <%= f.input :end_at, as: :string, required: true, input_html: {class: "datepicker", "data-price-target" => "end"} %>
+            <%= f.input :start_at, as: :string, required: true, input_html: {class: "datepicker date-input", "data-price-target" => "start" } %>
+            <%= f.input :end_at, as: :string, required: true, input_html: {class: "datepicker date-input", "data-price-target" => "end"} %>
             <%= f.input :total_price, required: true, label: false, input_html: {class: "d-none", "data-price-target" => "price"} %>
             <div class="d-flex align-items-center">
               <h5>Total price : &nbsp</h5>
