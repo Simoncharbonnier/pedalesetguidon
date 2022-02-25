@@ -8,7 +8,7 @@ export default class extends Controller {
       strings: ["Nantes !", "Bordeaux !", "Lille !", "Paris !", "Lyon !", "Bayonne !", "Brest !", "Marseille !"],
       typeSpeed: 100,
       backSpeed: 50,
-      smartBackspace: true, // this is a default
+      smartBackspace: true,
       loop: true
     });
   }
