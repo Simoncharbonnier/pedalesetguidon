@@ -7,7 +7,7 @@
         <% n += 1 %>
         <% c += 1 %>
         <% if n == 1 %>
-          <h3 class="title py-3">Waiting for <br> validation</h3>
+          <h3 class="title py-3 text-black">Waiting for <br> validation</h3>
         <% end %>
         <div class="card-rental mt-4">
           <div class= "card-img">
@@ -28,19 +28,19 @@
           </div>
         </div>
       <% end %>
-      <% if n != 0 %>
-        <hr>
-      <% end %>
+    <% end %>
+    <% if n != 0 %>
+      <hr>
     <% end %>
   </div>
   <% n = 0 %>
   <div class="d-flex">
     <% @owner_rentals.each do |owner_rental| %>
-      <% if owner_rental.start_at > Date.today && owner_rental.status == "validated" %>
+      <% if owner_rental.start_at >= Date.today && owner_rental.status == "validated" %>
         <% n += 1 %>
         <% c += 1 %>
         <% if n == 1 %>
-          <h3 class="title py-3">Next <br> rentals</h3>
+          <h3 class="title py-3 text-black">Next <br> rentals</h3>
         <% end %>
         <div class="card-rental mt-4">
           <div class= "card-img">
@@ -53,9 +53,9 @@
           </div>
         </div>
       <% end %>
-      <% if n != 0 %>
-        <hr>
-      <% end %>
+    <% end %>
+    <% if n != 0 %>
+      <hr>
     <% end %>
   </div>
   <% n = 0 %>
