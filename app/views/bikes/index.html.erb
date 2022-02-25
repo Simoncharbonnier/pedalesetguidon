@@ -1,5 +1,11 @@
 <div class="container d-flex mt-3">
   <div class="flex-grow-1">
+  <%= form_tag bikes_path, method: :get do %>
+    <div class="d-flex justify-content-between">
+      <%= text_field_tag :query, params[:query], class: "form-control mb-3 search-bar", placeholder: "Find a bike" %>
+      <%= submit_tag "Search", class: "btn btn-success btn-search" %>
+    </div>
+  <% end %>
     <% @bikes.each do |bike| %>
       <div class="card" style="max-width: 620px;">
         <div class="row no-gutters">
