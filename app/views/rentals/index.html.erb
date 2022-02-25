@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container body-footer">
   <% n = 0 %>
   <% c = 0 %>
   <div class="d-flex">
@@ -8,21 +8,20 @@
         <% c += 1 %>
         <% if n == 1 %>
           <div class="status mt-4 d-flex flex-column align-center justify-content-center">
-            <h3 class="title text-black"><p>waiting owner's acceptation !</p></h3>
-
+            <h3 class="title text-black">Waiting for owner approval !</h3>
+            <p>Don't worry, the owner will accept shortly !</p>
           </div>
         <% end %>
         <div class="card-rental mt-4">
           <div class= "card-img">
             <%= cl_image_tag rental.bike.photo.key %>
           </div>
-          <div class="card-body" style="color:#5D7052;">
-              <p class="card-text"><%= rental.start_at %> / <%= rental.end_at %></p>
-              <p class="card-text-left" style="text-align: left;">
-              <i class="fa fa-map-marker-alt" style="color:#FB8F67;"></i>  <%= rental.bike.location %></p>
-              <p class="card-text" style="text-align: left;">
-              <i class="fas fa-euro-sign" style="color:#FB8F67;"></i> <%= rental.total_price %></p>
-            </div>
+          <div class="card-body">
+            <h4><strong><i class="fas fa-euro-sign"></i> <%= rental.total_price %></strong></h4>
+            <h4 class="bike-title "> <%= rental.bike.bike_name %> </h4>
+            <p class="text-muted"> <%= rental.bike.location %></p>
+            <p class=" text-muted"> <%= rental.start_at %> / <%= rental.end_at %> </p>
+          </div>
           <div class= "d-flex justify-content-between px-3 pb-3">
           </div>
         </div>
@@ -41,20 +40,19 @@
         <% if n == 1 %>
           <div class="status mt-4 d-flex flex-column align-center justify-content-center">
             <h3 class="title text-black">Next rentals</h3>
-
+            <p>The bike owner is looking forward meeting you !</p>
           </div>
         <% end %>
         <div class="card-rental mt-4">
           <div class= "card-img">
             <%= cl_image_tag rental.bike.photo.key %>
           </div>
-          <div class="card-body" style="color:#5D7052;">
-              <p class="card-text"><%= rental.start_at %> / <%= rental.end_at %></p>
-              <p class="card-text-left" style="text-align: left;">
-              <i class="fa fa-map-marker-alt" style="color:#FB8F67;"></i>  <%= rental.bike.location %></p>
-              <p class="card-text" style="text-align: left;">
-              <i class="fas fa-euro-sign" style="color:#FB8F67;"></i> <%= rental.total_price %></p>
-            </div>
+          <div class="card-body">
+            <h4><strong><i class="fas fa-euro-sign"></i> <%= rental.total_price %></strong></h4>
+            <h4 class="bike-title "> <%= rental.bike.bike_name %> </h4>
+            <p class="text-muted"> <%= rental.bike.location %></p>
+            <p class=" text-muted"> <%= rental.start_at %> / <%= rental.end_at %> </p>
+          </div>
         </div>
       <% end %>
     <% end %>
@@ -71,24 +69,24 @@
         <% if n == 1 %>
           <div class="status mt-4 d-flex flex-column align-center justify-content-center">
             <h3 class="title text-black">Past rentals</h3>
+            <p>You still have sore legs,<br> aren't you ?</p>
           </div>
         <% end %>
         <div class="card-rental mt-4">
           <div class= "card-img">
             <%= cl_image_tag rental.bike.photo.key %>
           </div>
-          <div class="card-body" style="color:#5D7052;">
-              <p class="card-text"><%= rental.start_at %> / <%= rental.end_at %></p>
-              <p class="card-text-left" style="text-align: left;">
-              <i class="fa fa-map-marker-alt" style="color:#FB8F67;"></i>  <%= rental.bike.location %></p>
-              <p class="card-text" style="text-align: left;">
-              <i class="fas fa-euro-sign" style="color:#FB8F67;"></i> <%= rental.total_price %></p>
-            </div>
+          <div class="card-body">
+            <h4><strong><i class="fas fa-euro-sign"></i> <%= rental.total_price %></strong></h4>
+            <h4 class="bike-title "> <%= rental.bike.bike_name %> </h4>
+            <p class="text-muted"> <%= rental.bike.location %></p>
+            <p class=" text-muted"> <%= rental.start_at %> / <%= rental.end_at %> </p>
+          </div>
         </div>
       <% end %>
     <% end %>
   </div>
   <% if c == 0 %>
-    <h4 class="mt-4 text-muted"><em>No offers yet, go add a bike <%= link_to "here", new_bike_path, class: "text-muted link-add-bike text-decoration-none" %> !</em></h4>
+    <h4 class="mt-4 text-muted"><em>No rentals yet, find and book a bike <%= link_to "here", bikes_path, class: "text-muted link-add-bike text-decoration-none" %> !</em></h4>
   <% end %>
 </div>
