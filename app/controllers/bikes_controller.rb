@@ -23,6 +23,15 @@ class BikesController < ApplicationController
 
   def show
     @rental = Rental.new
+
+    @markers = @bike.geocode.map do
+      {
+        lat: @bike.latitude,
+        lng: @bike.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { bike: @bike }),
+        image_url: helpers.asset_url("bicycle.png")
+      }
+    end
   end
 
   def new
