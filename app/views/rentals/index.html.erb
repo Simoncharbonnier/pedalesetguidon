@@ -1,57 +1,71 @@
 
 <div class="container">
-  <div class="container d-flex">
+  <div class="d-flex">
     <% @rentals.each do |rental| %>
       <% if rental.status == "pending" %>
-        <div class="card" style="width: 18rem;">
-        <p class="card_title" style="color:#A7001E;"> waiting owner's acceptation </p>
-          <div style="background-size: cover; background-position: center; height: 200px; background-image: url('<%= cl_image_path rental.bike.photo.key%>');"></div>
-            <div class="card-body" style="color:#5D7052;">
-            <p class="card-text"><%= rental.start_at %><strong style="color:#CA3C66;"> -> </strong> <%= rental.end_at %></p>
+        <div class="card-rental">
+          <p class="card_title" style="color:#A7001E;"><strong> Waiting owner's validation </strong></p>
+          <div class="card-img"style="background-image: url('<%= cl_image_path rental.bike.photo.key%>');">
+          </div>
+          <div class="card-body">
+            <h4 class="bike-title "> <%= rental.bike.bike_name %> </h4>
+            <p class=" text-muted"><%= rental.start_at %>
+            <strong style="color:#CA3C66;"> -> </strong>
+            <%= rental.end_at %></p>
             <p class="card-text-left" style="text-align: left;">
-              <i class="fa fa-map-marker-alt" style="color:#CA3C66;"></i>  <%= rental.bike.location %></p>
+              <i class="fa fa-map-marker-alt" style="color:#CA3C66;"></i>
+              <%= rental.bike.location %></p>
             <p class="card-text" style="text-align: left;">
-              <i class="fas fa-euro-sign" style="color:#CA3C66;"></i> <%= rental.total_price %></p>
+              <i class="fas fa-euro-sign" style="color:#CA3C66;"></i>
+              <%= rental.total_price %></p>
           </div>
         </div>
       <% end %>
     <% end %>
   </div>
-</div>
-  <hr>
-<div class="container">
-  <div class="container d-flex">
+
+  <div class="d-flex">
     <% @rentals.each do |rental| %>
       <% if rental.status == "validated" && rental.start_at > Date.today %>
-        <div class="card" style="width: 18rem;">
-        <p class="card_title" style="text-align: left;" style="color:#A7001E;"> Next  </p>
-        <div style="background-size: cover; background-position: center; height: 200px; background-image: url('<%= cl_image_path rental.bike.photo.key%>');"></div>
-            <div class="card-body" style="color:#5D7052;">
-            <p class="card-text"><%= rental.start_at %><strong style="color:#CA3C66;"> -> </strong> <%= rental.end_at %></p>
+        <div class="card-rental">
+        <p class="card_title" style="color:#7AA95C;"><strong> Next </strong></p>
+          <div class="card-img" style="background-image: url('<%= cl_image_path rental.bike.photo.key%>');">
+          </div>
+          <div class="card-body">
+            <h4 class="bike-title "> <%= rental.bike.bike_name %> </h4>
+            <p class=" text-muted"><%= rental.start_at %>
+            <strong style="color:#CA3C66;"> -> </strong>
+            <%= rental.end_at %></p>
             <p class="card-text-left" style="text-align: left;">
-              <i class="fa fa-map-marker-alt" style="color:#CA3C66;"></i>  <%= rental.bike.location %></p>
+              <i class="fa fa-map-marker-alt" style="color:#CA3C66;"></i>
+              <%= rental.bike.location %></p>
             <p class="card-text" style="text-align: left;">
-              <i class="fas fa-euro-sign" style="color:#CA3C66;"></i> <%= rental.total_price%></p>
+              <i class="fas fa-euro-sign" style="color:#CA3C66;"></i>
+              <%= rental.total_price %></p>
           </div>
         </div>
       <% end %>
     <% end %>
   </div>
-</div>
-<hr>
-<div class="container">
+
   <div class="container d-flex">
     <% @rentals.each do |rental| %>
       <% if rental.status == "validated" && rental.end_at < Date.today %>
-        <div class="card" style="width: 18rem;">
-        <p class="card_title" style="color:#A7001E;"> Passed </p>
-        <div style="background-size: cover; background-position: center; height: 200px; background-image: url('<%= cl_image_path rental.bike.photo.key%>');"></div>
-            <div class="card-body" style="color:#5D7052;">
-            <p class="card-text"><%= rental.start_at %><strong style="color:#CA3C66;"> -> </strong> <%= rental.end_at %></p>
+        <div class="card-rental">
+        <p class="card_title" style="color:#A3A3A3;" style="text-align: center;"><strong>Passed</strong></p>
+        <div class="card-img" style="background-image: url('<%= cl_image_path rental.bike.photo.key%>');">
+          </div>
+          <div class="card-body">
+            <h4 class="bike-title "> <%= rental.bike.bike_name %> </h4>
+            <p class=" text-muted"><%= rental.start_at %>
+            <strong style="color:#CA3C66;"> -> </strong>
+            <%= rental.end_at %></p>
             <p class="card-text-left" style="text-align: left;">
-              <i class="fa fa-map-marker-alt" style="color:#CA3C66;"></i>  <%= rental.bike.location %></p>
+              <i class="fa fa-map-marker-alt" style="color:#CA3C66;"></i>
+              <%= rental.bike.location %></p>
             <p class="card-text" style="text-align: left;">
-              <i class="fas fa-euro-sign" style="color:#CA3C66;"></i> <%= rental.total_price%></p>
+              <i class="fas fa-euro-sign" style="color:#CA3C66;"></i>
+              <%= rental.total_price %></p>
           </div>
         </div>
       <% end %>
