@@ -2,6 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static targets = [ "start", "end", "price", "daily", "totalprice" ]
+
   price() {
     const start = this.startTarget
     const end = this.endTarget
@@ -16,7 +17,7 @@ export default class extends Controller {
 
     if (endDate >= startDate) {
       price.value = (days + 1) * daily.innerText
-      totalprice.innerText = price.value + " €"
+      totalprice.innerHTML = `<strong>${price.value} €</strong>`
     } else {
       totalprice.innerText = ""
     }

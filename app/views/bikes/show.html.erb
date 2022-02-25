@@ -21,12 +21,12 @@
             <%= f.input :end_at, as: :string, required: true, input_html: {class: "datepicker", "data-price-target" => "end"} %>
             <%= f.input :total_price, required: true, label: false, input_html: {class: "d-none", "data-price-target" => "price"} %>
             <div class="d-flex align-items-center">
-              <h4>Total price : &nbsp</h4>
-              <h3 class="text-left" data-price-target="totalprice"></h3>
+              <h5>Total price : &nbsp</h5>
+              <h3 class="mt-0" data-price-target="totalprice"><strong><%= @bike.daily_price %> €</strong></h3>
             </div>
             <div class="mt-1">
               <% if current_user %>
-                  <%= f.submit "BOOK YOUR BIKE NOW !", class: "btn btn-success" %>
+                <%= f.submit "BOOK YOUR BIKE NOW !", class: "btn btn-success" %>
               <% else %>
                 <%= link_to new_user_session_path do %>
                   <%= f.submit "Log in and book your bike !", class: "btn btn-success" %>

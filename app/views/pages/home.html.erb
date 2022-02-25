@@ -1,9 +1,11 @@
 <!--_navbar -->
 <div class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://c.wallhere.com/photos/4e/61/bicycle_landscape_wood_vehicle_helmet-222360.jpg!d);">
-      <a class="btn" href="/bikes/new" id="add-bike">Add a bike</a>
+  <a class="btn" href="/bikes/new" id="add-bike">Add a bike</a>
   <div class="banner text-center" >
-      <h1>Rent a bike in <span data-controller="typed-js"></span></h1>
-      <a class="btn btn-success px-5 text-white mt-5" href="/bikes">View all our bikes</a><br>
+    <h1>Rent a bike in <span data-controller="typed-js"></span></h1>
+    <a class="btn btn-success px-5 text-white mt-5" href="/bikes">View all our bikes</a><br>
+    <% if !(current_user) %>
       <a class="btn px-5 text-white mt-5" href="/users/sign_up" id="sign-up">Sign Up</a>
+    <% end %>
   </div>
-  </div>
+</div>

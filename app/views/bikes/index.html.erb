@@ -1,9 +1,6 @@
-
-
- <div class="container d-flex mt-3">
-    <div class="flex-grow-1">
-      <% @bikes.each do |bike| %>
-
+<div class="container d-flex mt-3">
+  <div class="flex-grow-1">
+    <% @bikes.each do |bike| %>
       <div class="card" style="max-width: 620px;">
         <div class="row no-gutters">
           <div class="col-md-4">
@@ -14,7 +11,7 @@
               <h5 class="card-title bike-title"><strong><%= bike.bike_name %></strong></h5>
               <p class="card-text text-muted"><%= bike.location %></p>
               <div class="d-flex justify-content-between">
-                <h5 class="card-text"><strong> <%= bike.daily_price %>€</strong> / day</h5>
+                <h5 class="card-text"><strong> <%= bike.daily_price %> €</strong> / day</h5>
                 <div>
                   <%= link_to 'Read more', bike_path(bike.id), class: "btn btn-success btn-sm text-white" %>
                 </div>
