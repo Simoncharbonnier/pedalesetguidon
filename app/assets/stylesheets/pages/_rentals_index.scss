@@ -1,33 +1,39 @@
 
-.container {
-  background-color: #EEEEEE;
-  margin-top: 10px;
+.card {
+  height: 150px;
+  width: 150px;
   border-radius: 10px;
-  padding-bottom: 10px;
-}
-.parent fa-map-marker-alt{
-  color:#7DC2A5;
+  margin-bottom: 10px;
 }
 
-.card {
-  /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+.card-rental{
+  box-shadow:  0 4px 8px 0 rgba(0,0,0,0.2);
+  background-color: white;
   transition: 0.3s;
-  text-align: center;
+  border-radius: 10px;
   margin: 2px;
+  align-items: center;
 }
+
+.card_title {
+  text-align: center;
+}
+
+.card-image {
+  height: 250px;/*1*/
+  width: 250px;
+  position: relative;/*2*/
+
+  background: cover;
+}
+
+
 
 /* On mouse-over, add a deeper shadow */
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-/* Add some padding inside the card container */
-.container {
-  padding: 2px 16px;
-
-}
 .card-text-left {
   text-align: left;
 }
-
