@@ -70,6 +70,7 @@ bike10.photo.attach(io: file_bike10, filename: 'TrekUltraMax.jpg', content_type:
 puts 'Bikes seeds done'
 
 # 6 Rentals
+rental5 = Rental.create(user: louis, bike: bike5, status: "pending", start_at: "2022-3-25", end_at: "2022-3-28", total_price: bike5.daily_price * 4 )
 rental4 = Rental.create(user: paul, bike: bike7, status: "validated", start_at: "2022-4-3", end_at: "2022-4-5", total_price: bike7.daily_price * 3 )
 rental1 = Rental.create(user: paul, bike: bike9, status: "validated", start_at: "2020-1-3", end_at: "2020-1-5", total_price: bike9.daily_price * 3 )
 rental2 = Rental.create(user: paul, bike: bike5, status: "validated", start_at: "2021-1-3", end_at: "2021-1-5", total_price: bike5.daily_price * 3 )
