@@ -7,7 +7,10 @@
         <% n += 1 %>
         <% c += 1 %>
         <% if n == 1 %>
-          <h3 class="title py-3">Waiting for <br> validation</h3>
+          <div class="status mt-4 d-flex flex-column align-center justify-content-center">
+            <h3 class="title text-black">Waiting for <br> your validation</h3>
+            <p>Your customers are waiting <br>for your answer !</p>
+          </div>
         <% end %>
         <div class="card-rental mt-4">
           <div class= "card-img">
@@ -23,7 +26,7 @@
               <%= link_to "ACCEPT", accept_owner_rental_path(owner_rental), method: "PATCH", class: "btn btn-success px-4"%>
             </div>
             <div class="refuse">
-              <%= link_to " REFUSE", refuse_owner_rental_path(owner_rental), method: "PATCH", class: "btn btn-danger px-4"%>
+              <%= link_to " REFUSE", refuse_owner_rental_path(owner_rental), method: "PATCH", class: "btn refuse px-4"%>
             </div>
           </div>
         </div>
@@ -36,11 +39,14 @@
   <% n = 0 %>
   <div class="d-flex">
     <% @owner_rentals.each do |owner_rental| %>
-      <% if owner_rental.start_at > Date.today && owner_rental.status == "validated" %>
+      <% if owner_rental.start_at >= Date.today && owner_rental.status == "validated" %>
         <% n += 1 %>
         <% c += 1 %>
         <% if n == 1 %>
-          <h3 class="title py-3">Next <br> rentals</h3>
+          <div class="status mt-4 d-flex flex-column align-center justify-content-center">
+            <h3 class="title text-black">Next rentals</h3>
+            <p>Your customers are looking <br>forward their trip !</p>
+          </div>
         <% end %>
         <div class="card-rental mt-4">
           <div class= "card-img">
@@ -65,7 +71,10 @@
         <% n += 1 %>
         <% c += 1 %>
         <% if n == 1 %>
-          <h3 class="title py-3 text-black">Passed <br> rentals</h3>
+          <div class="status mt-4 d-flex flex-column align-center justify-content-center">
+            <h3 class="title text-black">Past rentals</h3>
+            <p>Your customers still have <br>sore legs !</p>
+          </div>
         <% end %>
         <div class="card-rental mt-4">
           <div class= "card-img">
